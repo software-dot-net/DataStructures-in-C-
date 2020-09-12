@@ -5,6 +5,8 @@
     init() function creates an head for the linkedlist
     
 */
+#include <stdlib.h>
+#include <iostream>
 
 template<class l>
 struct Node{
@@ -22,7 +24,7 @@ class LinkedList{
             init();
         }
         void print(void);
-        void createNode(l data);
+        struct Node *createNode(l data);
         void append(struct Node *node);    
         void replaceHead(struct Node *node);
         void getLastNode(void);
@@ -31,3 +33,18 @@ class LinkedList{
         void deleteAtIndex(int index);
         int length(void);            
 };
+
+template<class l>
+struct Node *LinkedList<l>::createNode(l data){
+    struct Node *node = (struct Node *)malloc(sizeof(struct Node));
+    node->data = data;
+    node->next = NULL;
+}
+
+template<class l>
+int LinkedList<l>::length(void){
+    struct Node *temp = head;
+    int len=1;
+    while(temp->next != NULL) len++;
+    return len;
+}
