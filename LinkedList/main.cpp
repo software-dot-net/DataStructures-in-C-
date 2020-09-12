@@ -4,7 +4,6 @@ using namespace std;
 #define n 10
 
 
-
 int main(){
     #ifdef n
         cout << ("name is defined \n");
