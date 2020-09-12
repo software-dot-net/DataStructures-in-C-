@@ -14,10 +14,19 @@ struct Node{
 
 template<class l>
 class LinkedList{
+    private:
+        struct Node *head;
     public:
-        void init();
+        void init(void);
         LinkedList(){
             init();
-        }    
-
+        }
+        void print(void);
+        void createNode(l data);
+        void append(struct Node *node);    
+        void replaceHead(struct Node *node);
+        void getLastNode(void);
+        void insertAtIndex(int index,struct Node *node);
+        void pop();
+        void deleteAtIndex(int index);            
 };
