@@ -28,5 +28,6 @@ class LinkedList{
         void getLastNode(void);
         void insertAtIndex(int index,struct Node *node);
         void pop();
-        void deleteAtIndex(int index);            
+        void deleteAtIndex(int index);
+        int length(void);            
 };
