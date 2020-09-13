@@ -47,6 +47,17 @@ void LinkedList<l>::insertAtIndex(int index,struct Node *node){
 }
 
 template<class l>
+void LinkedList<l>::deleteAtIndex(int index){
+    int count = 0;
+    struct Node *prev=NULL; struct Node *temp= head;
+    while(count != index){
+        prev = temp; temp = temp->next;
+        count++;
+    }
+    prev->next = temp->next;
+}
+
+template<class l>
 struct Node *LinkedList<l>::getLastNode(void){
     struct Node *temp = head;
     while(temp->next != NULL)
