@@ -42,6 +42,8 @@ void LinkedList<l>::insertAtIndex(int index,struct Node *node){
         prev = temp; temp = temp->next;
         count++;
     }
+    prev->next = node;
+    node->next = temp;
 }
 
 template<class l>
@@ -71,3 +73,4 @@ void LinkedList<l>::append(struct Node *node){
     struct Node *lastone = getLastNode();
     lastone->next = node;
 }
+
