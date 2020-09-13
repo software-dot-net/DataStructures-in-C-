@@ -27,12 +27,29 @@ class LinkedList{
         struct Node *createNode(l data);
         void append(struct Node *node);    
         void replaceHead(struct Node *node);
-        void getLastNode(void);
+        struct Node *getLastNode(void);
         void insertAtIndex(int index,struct Node *node);
         void pop();
         void deleteAtIndex(int index);
         int length(void);            
 };
+
+template<class l>
+void LinkedList<l>::insertAtIndex(int index,struct Node *node){
+    int count = 0;
+    struct Node *prev=NULL; struct Node *temp= head;
+    while(count != index){
+        prev = temp; temp = temp->next;
+        count++;
+    }
+}
+
+template<class l>
+struct Node *LinkedList<l>::getLastNode(void){
+    struct Node *temp = head;
+    while(temp->next != NULL)
+    return temp;
+}
 
 template<class l>
 struct Node *LinkedList<l>::createNode(l data){
@@ -47,4 +64,10 @@ int LinkedList<l>::length(void){
     int len=1;
     while(temp->next != NULL) len++;
     return len;
+}
+
+template<class l>
+void LinkedList<l>::append(struct Node *node){
+    struct Node *lastone = getLastNode();
+    lastone->next = node;
 }
