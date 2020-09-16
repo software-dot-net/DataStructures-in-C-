@@ -1,3 +1,5 @@
+#include <iostream>
+#include <stdlib.h>
 
 template<class t>
 class queue{
@@ -5,13 +7,24 @@ class queue{
         int capacity,front,rear;
         t *Q;
     public:
+        void print(void);
         bool isEmpty(void);
         bool isFull(void);
         void init(int size);
         void Enqueue(t data);
         t Dequeue(void);
         int length(void);
+        queue(int size){
+            init(size);
+        }
 };
+
+template<class t>
+void queue<t>::print(void){
+    std::cout << "[ ";
+    for(int i=0;i<=rear;i++) std::cout << Q[i] << " ";
+    std::cout << "]";
+}
 
 template<class t>
 int queue<t>::length(void){
@@ -47,12 +60,13 @@ void queue<t>::Enqueue(t data){
 
 template<class t>
 t queue<t>::Dequeue(void){
-    if(isEmpty()) std::cout << "The Queue is Empty " << std::endl;
+    if(isEmpty()) 
+        std::cout << "The Queue is Empty " << std::endl;
     else{
         t deleted = Q[front];
         if(front == rear) front == rear = -1;
         else front = (front + 1) % capacity;
-        return t;
+        return deleted;
     }
 }
 
