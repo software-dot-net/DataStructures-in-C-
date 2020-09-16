@@ -52,9 +52,10 @@ template<class t>
 void queue<t>::Enqueue(t data){
     if(isFull()) std::cout << "The Queue is Full " << std::endl;
     else{
+        std::cout << front << rear << std::endl;
         rear = (rear + 1) % capacity;
         Q[rear] = data;
-        if(front = -1) front = rear;
+        if(front = -1){ front = rear; }
     }
 }
 
