@@ -11,8 +11,12 @@ class queue{
         void Enqueue(t data);
         t Dequeue(void);
         int length(void);
-        bool isEmpty(void);
 };
+
+template<class t>
+int queue<t>::length(void){
+    return ((capacity - rear + front + 1) % capacity);
+}
 
 template<class t>
 bool queue<t>::isFull(void){
