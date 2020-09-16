@@ -5,6 +5,8 @@ class queue{
         int capacity,front,rear;
         t *Q;
     public:
+        bool isEmpty(void);
+        bool isFull(void);
         void init(int size);
         void Enqueue(t data);
         t Dequeue(void);
@@ -12,6 +14,15 @@ class queue{
         bool isEmpty(void);
 };
 
+template<class t>
+bool queue<t>::isFull(void){
+    return ((rear + 1) % capacity == front);
+}
+
+template<class t>
+bool queue<t>::isEmpty(void){
+    return (front == -1);
+}
 
 template<class t>
 void queue<t>::init(int size){
@@ -22,9 +33,12 @@ void queue<t>::init(int size){
 
 template<class t>
 void queue<t>::Enqueue(t data){
-    rear = (rear + 1) % capacity;
-    Q[rear] = data;
-    if(front = -1) front = rear;
+    if(isFull()) std::cout << "The Queue is Full " << std::endl;
+    else{
+        rear = (rear + 1) % capacity;
+        Q[rear] = data;
+        if(front = -1) front = rear;
+    }
 }
 
 template<class t>
