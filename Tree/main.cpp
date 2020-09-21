@@ -16,6 +16,7 @@ int main(){
     tree.root->right->left = NULL;
     tree.root->right->right = NULL;
 
+    /*
     std::cout << "preorder------------------------------------------------ \n";
     tree.preordertraversal(tree.root);
     std::cout << "inorder------------------------------------------------ \n";
@@ -26,5 +27,11 @@ int main(){
     tree.iterativeTraversal("preorder",tree.root);
     std::cout << "inorder------------------------------------------------ \n";
     tree.iterativeTraversal("inorder",tree.root);
+    */
+    std::cout << "postorder------------------------------------------------ \n";
+    tree.iterativeTraversal("postorder",tree.root);
+    std::cout << "levelorder------------------------------------------------ \n";
+    tree.LevelOrderTraversal(tree.root);
+    
     return 0;
 }

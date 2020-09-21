@@ -3,6 +3,7 @@
 #define TREE 1
 #include <iostream>
 #include "stack.h"
+#include <queue>
 
 template<class n>
 struct node{
@@ -19,6 +20,7 @@ class Tree{
         void postodertraversal(struct node<t> *root);
         void inordertraversal(struct node<t> *root);
         void iterativeTraversal(char method[],struct node<t> *root);
+        void LevelOrderTraversal(struct node<t> *root);
         Tree(){
             root = new node<t>;
             root->data = 0;
@@ -85,5 +87,46 @@ void Tree<t>::iterativeTraversal(char method[],struct node<t> *root){
             root = root->right;
         }
     }
+    if(method == "postorder"){
+        Stack<struct node<t> *> stacker(100);
+        struct node<t> *prev = NULL;
+        do{
+            while(root != NULL){
+                stacker.push(root);
+                root = root->left;
+            }
+            while((root == NULL) && (!stacker.isEmpty())){
+                root = stacker.peek();
+                std::cout << root->data << std::endl;
+                if(root->right == NULL || root->right == prev){
+                    std::cout << root->data << std::endl;
+                    stacker.pop();
+                    prev = root;
+                    root = NULL;
+                }
+                else{
+                    root = root->right;
+                }
+            }
+        }while(!(stacker.isEmpty()));
+    }
 }
+template<class t>
+void Tree<t>::LevelOrderTraversal(struct node<t> *root){
+    std::queue<struct node<t> *> Q;
+
+    Q.push(root);
+    while(!Q.empty()){
+        root = Q.front();
+        Q.pop();
+        std::cout << root->data << std::endl;
+        if(root->left != NULL){
+            Q.push(root->left);
+        }
+        if(root->right != NULL){
+            Q.push(root->right);
+        }
+    }
+}
+
 #endif
