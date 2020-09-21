@@ -23,15 +23,15 @@ class LinkedList{
         LinkedList(l d){
             init(d);
         }
-        void print(void); // done
-        struct Node<l> *createNode(l data); // done
-        void append(struct Node<l> *node);   // done
-        void replaceHead(struct Node<l> *node); // done
-        struct Node<l> *getLastNode(void);  // done
-        void insertAtIndex(int index,struct Node<l> *node); // done // logical bug is found
-        void pop(void); // done
-        void deleteAtIndex(int index); // done
-        int length(void);       // done     
+        void print(void);
+        struct Node<l> *createNode(l data); 
+        void append(struct Node<l> *node);  
+        void replaceHead(struct Node<l> *node);
+        struct Node<l> *getLastNode(void); 
+        void insertAtIndex(int index,struct Node<l> *node); 
+        void pop(void);
+        void deleteAtIndex(int index);
+        int length(void);           
 };
 
 template<class l>
@@ -88,7 +88,6 @@ void LinkedList<l>::insertAtIndex(int index,struct Node<l> *node){
     }
     prev->next = node;
     node->next = temp;
-<<<<<<< HEAD
 }
 
 template<class l>
@@ -100,8 +99,6 @@ void LinkedList<l>::deleteAtIndex(int index){
         count++;
     }
     prev->next = temp->next;
-=======
->>>>>>> queues
 }
 
 template<class l>
