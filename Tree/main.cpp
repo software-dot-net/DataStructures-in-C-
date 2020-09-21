@@ -16,10 +16,15 @@ int main(){
     tree.root->right->left = NULL;
     tree.root->right->right = NULL;
 
+    std::cout << "preorder------------------------------------------------ \n";
     tree.preordertraversal(tree.root);
-    std::cout << "------------------------------------------------ \n";
+    std::cout << "inorder------------------------------------------------ \n";
     tree.inordertraversal(tree.root);
-    std::cout << "------------------------------------------------ \n";
+    std::cout << "postorder------------------------------------------------ \n";
     tree.postodertraversal(tree.root);
+    std::cout << "preorder------------------------------------------------ \n";
+    tree.iterativeTraversal("preorder",tree.root);
+    std::cout << "inorder------------------------------------------------ \n";
+    tree.iterativeTraversal("inorder",tree.root);
     return 0;
 }
